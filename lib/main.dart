@@ -13,6 +13,7 @@ class StrikeFour extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Strike 4',
+      debugShowCheckedModeBanner: false,
       home: GameBoard(),
     );
   }
@@ -287,6 +288,21 @@ class _GameBoardState extends State<GameBoard> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Strike 4'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => const AlertDialog(
+                  content: Text(
+                      'It needs two players playing on the opposite side. One player will be playing with red colour coins while the other with yellow colour coins. Whoever gets four coins in a row first is the winner.Players take turns placing checkers into the grid until one player has a row of 4 of his or her checkers in a row. The row can be up and down (vertical), across (horizontal), or diagonal.'),
+                ),
+              );
+            },
+            icon: const Icon(Icons.help),
+            tooltip: 'How to Play',
+          )
+        ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(30),
           child: Padding(
