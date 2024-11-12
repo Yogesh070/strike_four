@@ -462,6 +462,9 @@ class _GameBoardState extends State<GameBoard> {
                             enableProbabilityIndicator.value = val;
                           },
                         ),
+                        subtitle: const Text(
+                          'Hover over a column to preview the probability of winning before making a move.',
+                        ),
                       );
                     },
                   ),
@@ -469,7 +472,7 @@ class _GameBoardState extends State<GameBoard> {
               );
             },
             icon: const Icon(Icons.settings),
-            tooltip: 'How to Play',
+            tooltip: 'Settings',
           )
         ],
       ),
@@ -504,6 +507,9 @@ class _GameBoardState extends State<GameBoard> {
                     child: Column(
                       children: [
                         _buildProbabilityIndicator(isPreview: true),
+                        const SizedBox(
+                          height: 8,
+                        ),
                         SizedBox(
                           width: gridWidth,
                           height: 40,
